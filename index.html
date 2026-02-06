@@ -1,148 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <title>Rose Day Wish 🌹</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            overflow: hidden;
-        }
+  <meta charset="UTF-8" />
+  <title>Rose Day Wish 🌹</title>
 
-        /* Click Message Button */
-        .open-btn {
-            padding: 18px 35px;
-            font-size: 20px;
-            border: none;
-            border-radius: 50px;
-            background: #e60023;
-            color: white;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-        }
+  <!-- WhatsApp Preview Meta Tags -->
+  <meta property="og:title" content="Happy Rose Day My Love 🌹" />
+  <meta property="og:description" content="I made a special surprise for you ❤️ Click to see…" />
+  <meta property="og:image" content="https://reshupanchal.github.io/rose-day-wish/preview.jpg" />
+  <meta property="og:url" content="https://reshupanchal.github.io/rose-day-wish/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-        .open-btn:hover {
-            transform: scale(1.1);
-            background: #c4001d;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow: hidden;
+    }
 
-        /* Popup Page */
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
+    /* Falling Flowers */
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+    }
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 400px;
-            animation: fadeIn 1s ease;
-        }
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0.8;
+      }
+    }
 
-        .card h1 {
-            color: #e60023;
-            margin-bottom: 10px;
-        }
+    /* Button */
+    .open-btn {
+      padding: 18px 35px;
+      font-size: 20px;
+      border: none;
+      border-radius: 50px;
+      background: #e60023;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      z-index: 2;
+    }
 
-        .card p {
-            font-size: 18px;
-            color: #444;
-            line-height: 1.6;
-        }
+    .open-btn:hover {
+      transform: scale(1.1);
+      background: #c4001d;
+    }
 
-        .rose {
-            font-size: 50px;
-            animation: float 2s infinite ease-in-out;
-        }
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 3;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.7);
-            }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 420px;
+      animation: fadeIn 1s ease;
+      position: relative;
+    }
 
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+    .couple {
+      font-size: 60px;
+      margin-bottom: 15px;
+      animation: giveRose 2s infinite ease-in-out;
+    }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-            }
+    @keyframes giveRose {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
 
-            50% {
-                transform: translateY(-10px);
-            }
+    .card h1 {
+      color: #e60023;
+      margin-bottom: 10px;
+    }
 
-            100% {
-                transform: translateY(0);
-            }
-        }
+    .card p {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.6;
+    }
 
-        .close-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 20px;
-            background: #e60023;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.7);} 
+      to {opacity: 1; transform: scale(1);} 
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #e60023;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- Button -->
-    <button class="open-btn" onclick="openWish()">Click My Message ❤️</button>
+  <!-- Button -->
+  <button class="open-btn" onclick="openWish()">Click My Message ❤️</button>
 
-    <!-- Popup Wish -->
-    <div class="popup" id="popup">
-        <div class="card">
-            <div class="rose">🌹</div>
-            <h1>Happy Rose Day My Love</h1>
-            <p id="wishText">
-                My Dear Anand,
-                <br><br>
-                You are the most special person in my life.
-                This rose is a small gift but my love for you is endless.
-                Thank you for always being with me.
-                <br><br>
-                I Love You Forever ❤️
-            </p>
-            <button class="close-btn" onclick="closeWish()">Close</button>
-        </div>
+  <!-- Popup Wish -->
+  <div class="popup" id="popup">
+    <div class="card">
+
+      <!-- Realistic Girl Giving Rose Animation -->
+      <div class="couple" style="font-size:70px;">👩‍❤️‍👨🌹</div>
+
+      <h1>Happy Rose Day My Love</h1>
+
+      <p>
+        My Dear Anand,<br><br>
+        Like this rose, my love for you blooms forever 🌹<br>
+        You are my happiness, my strength, my everything ❤️<br><br>
+        Thank you for loving me so much.<br>
+        I am so lucky to have you in my life 💕<br><br>
+        Happy Rose Day Jaan 😘
+      </p>
+
+      <button class="close-btn" onclick="closeWish()">Close</button>
     </div>
+  </div>
 
-    <script>
-        function openWish() {
-            document.getElementById("popup").style.display = "flex";
-        }
+  <script>
+    function openWish() {
+      document.getElementById("popup").style.display = "flex";
+    }
 
-        function closeWish() {
-            document.getElementById("popup").style.display = "none";
-        }
-    </script>
+    function closeWish() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    /* Create Falling Flowers */
+    function createFlower() {
+      const flower = document.createElement("div");
+      flower.classList.add("flower");
+      flower.innerHTML = "🌹";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (3 + Math.random() * 5) + "s";
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 8000);
+    }
+
+    setInterval(createFlower, 300);
+  </script>
 
 </body>
-
 </html>
